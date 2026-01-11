@@ -20,3 +20,5 @@ COPY . .
 
 # Jupyter Notebookの起動設定
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--allow-root", "--no-browser", "--NotebookApp.token=''"]
+# コードのコピー（開発時はマウントするため、ビルド用）
+COPY . .
