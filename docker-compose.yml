@@ -1,0 +1,12 @@
+services:
+  kaggle:
+    build: .
+    container_name: kaggle_titanic
+    volumes:
+      - .:/app
+      # - .:/home/jovyan/work
+      - ${HOME}/.kaggle:/root/.kaggle
+    ports:
+      - "8888:8888"
+    tty: true
+    stdin_open: true

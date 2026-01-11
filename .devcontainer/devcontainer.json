@@ -1,0 +1,41 @@
+{
+    "name": "AI Engineer Dev Env",
+    // さきほど作成した Dockerfile を指定
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    // コンテナ内で自動インストールする拡張機能
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.black-formatter",
+                "ms-python.flake8",
+                "ms-python.mypy-type-checker"
+            ],
+            // ここに「以前の settings.json」の内容を移植
+            "settings": {
+                "editor.formatOnSave": true,
+                "python.formatting.provider": "none",
+                "[python]": {
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "explicit"
+                    }
+                },
+                "flake8.args": [
+                    "--max-line-length=88",
+                    "--ignore=E203,W503"
+                ],
+                "mypy-type-checker.args": [
+                    "--ignore-missing-imports",
+                    "--disallow-untyped-defs",
+                    "--disallow-incomplete-defs"
+                ]
+            }
+        }
+    },
+    // コンテナ起動後に実行するコマンド（念のため pip を最新に）
+    "postCreateCommand": "pip install --upgrade pip"
+}

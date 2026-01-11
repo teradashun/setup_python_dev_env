@@ -1,0 +1,10 @@
+black
+flake8
+mypy
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+jupyter
+kaggle
