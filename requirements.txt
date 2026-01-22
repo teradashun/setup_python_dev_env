@@ -8,3 +8,5 @@ seaborn
 scikit-learn
 jupyter
 kaggle
+xgboost
+lightgbm
